@@ -9,7 +9,7 @@ class GitSearchDetail extends Component {
       return '';
     }
 
-    const { name, owner, language, followers, url, description } = this.props.SelectedRepo;
+    const {  language, followers, url, description } = this.props.SelectedRepo;
 
     return (
       <div>

@@ -33,7 +33,7 @@ class Search extends Component {
               type='text'
               className='form-control'
               placeholder='type to search ...'
-              value='react js'           
+              defaultValue='react js'           
             />
              <span className='input-group-btn'>
           <button className='btn btn-default' type="submit">

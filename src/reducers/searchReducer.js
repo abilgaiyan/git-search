@@ -1,4 +1,4 @@
-import mapKeys from 'lodash/mapKeys';
+//import mapKeys from 'lodash/mapKeys';
 import { SEARCH_SUCCESS } from '../actions/actiontypes';
 
 export default function(state =[], action) {

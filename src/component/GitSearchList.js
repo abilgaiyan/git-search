@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import map from 'lodash/map';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { gitSearchResult } from '../actions/search';
 import { selectRepo } from '../actions/selectRepo';
 import Search from './Search';
@@ -59,7 +59,7 @@ class GitSearchList extends Component {
             </div>
             <div className="card-action">
               {/* <Link to={`/search/${item.name}`}>More</Link> */}
-              <a className="btn btn-primary" onClick={ this.clickHandler}>More</a>
+              <button className="btn btn-primary" onClick={ this.clickHandler}>{ this.state.showmore ? 'Show Less' : 'Show More' }</button>
               { this.state.showmore ? this.showMore(item) : '' } 
             </div>
           </div>

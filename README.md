@@ -2,6 +2,14 @@
 
 # Github Getter
 
+Installation instructions
+Create a local folder git-search
+clone a repository with - git clone https://github.com/abilgaiyan/git-search.git
+change directory to git-search - cd git-search
+install dependencies with - npm install
+run the local project with - npm run start
+
+
 ## Overview
 
 Write a single page JavaScript application that allows users to search through Github repositories via keyword.
@@ -15,3 +23,4 @@ Write a single page JavaScript application that allows users to search through G
 - UI presentation and search UX is up to you.
 - Build for the latest version of Chrome only.
 - And lastly, please follow up with some thoughts on where you would take this feature further. For example, maybe you'd refine the UI or process github data differently. Add these thoughts to the README. 
+
