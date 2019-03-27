@@ -21,9 +21,11 @@ class GitSearchList extends Component {
      //this.setState( {showmore: !this.state.showmore, currentIndex: index});
      this.setState((prevState) => {
        let newstate = {...prevState};
+       newstate.showmore = newstate.currentIndex === index ? !newstate.showmore : true;
        newstate.currentIndex = index;
-       newstate.showmore = !newstate.showmore;
-       console.log(newstate);
+
+       
+       //console.log(newstate);
       return newstate;
     })
      //console.log(this.state);
