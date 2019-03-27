@@ -9,15 +9,24 @@ import Search from './Search';
 class GitSearchList extends Component {
   constructor(props){
     super(props);
-    this.state = {showmore: false}
+    this.state = {showmore: false, currentIndex: 0}
     
   }
   componentDidMount() {
     this.props.gitSearchResult('reactjs');
   }
-   clickHandler=()=>{
-
-     this.setState({showmore: !this.state.showmore});
+   clickHandler=(index)=>{
+      console.log(index);
+     //this.setState( {showmore: !this.state.showmore, currentIndex: index});
+     //this.setState( {showmore: !this.state.showmore, currentIndex: index});
+     this.setState((prevState) => {
+       let newstate = {...prevState};
+       newstate.currentIndex = index;
+       newstate.showmore = !newstate.showmore;
+       console.log(newstate);
+      return newstate;
+    })
+     //console.log(this.state);
    }
    SearchHandler =(query) =>{
     // console.log(query);
@@ -59,8 +68,8 @@ class GitSearchList extends Component {
             </div>
             <div className="card-action">
               {/* <Link to={`/search/${item.name}`}>More</Link> */}
-              <button className="btn btn-primary" onClick={ this.clickHandler}>{ this.state.showmore ? 'Show Less' : 'Show More' }</button>
-              { this.state.showmore ? this.showMore(item) : '' } 
+              <button className="btn btn-primary" onClick={ () => this.clickHandler(index)}>{ this.state.showmore && this.state.currentIndex === index? 'Show Less' : 'Show More' }</button>
+              { this.state.showmore && this.state.currentIndex === index ? this.showMore(item) : '' } 
             </div>
           </div>
         </div>
