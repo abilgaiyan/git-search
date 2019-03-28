@@ -13,7 +13,7 @@ export default function(state =initialState, action) {
     case SEARCH_SUCCESS:
       //return { ...state, ...mapKeys(action.payload,'id') };
       return { ...state, data: action.payload, processing: false, error:null };
-    case SEARCH_SUCCESS:
+    case SEARCH_FAILURE:
       //return { ...state, ...mapKeys(action.payload,'id') };
       return { ...state,  processing: false, error:action.payload };  
     default:
