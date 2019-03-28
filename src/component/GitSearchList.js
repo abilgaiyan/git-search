@@ -47,20 +47,8 @@ class GitSearchList extends Component {
     );
   }
 
-  renderSearch() {
-    //  console.log(this.props.search.repositories);
-    if (!this.props.search.repositories){
-      return(<div>Processing ....</div>)
-    }
-    // return this.props.search.repositories.map(res => {
-    //   return(
-    //     <div>
-    //       <label>Owner Name: </label>
-    //       <span>{res.owner}</span>
-    //     </div>
-    //   )
-    // })
-    return map(this.props.search.repositories, (item,index) => {
+  renderSearchList(data){
+    return map(data.repositories, (item,index) => {
       return (
         <div className="card darken-1 horizontal" key={index}>
           <div className="card-stacked">
@@ -78,12 +66,37 @@ class GitSearchList extends Component {
       );
     });
   }
+  renderSearch() {
+    //  console.log(this.props.search.repositories);
+    const {processing,data,error} = this.props.search;
+    if (processing){
+      return(<div>Processing ....</div>)
+    }
+    if (error){
+        return (<div>Error: {error}</div>)
+    }
+    // return this.props.search.repositories.map(res => {
+    //   return(
+    //     <div>
+    //       <label>Owner Name: </label>
+    //       <span>{res.owner}</span>
+    //     </div>
+    //   )
+    // })
+   
+    return (
+      <div>
+       {data.repositories && <div>About {data.repositories.length}results</div>}
+        {this.renderSearchList(data)}
+      </div>
+    )
+  }
 
   render() {
-    return <div>
-      <Search onSearch ={this.SearchHandler}></Search>
-    {this.renderSearch()}
-    </div>;
+    return (<div>
+        <Search onSearch ={this.SearchHandler}></Search>
+       {this.renderSearch()}
+      </div>);
   }
 }
 

@@ -18,8 +18,11 @@ class Search extends Component {
   }
 
   handleSubmit(event) {
+    const query = this.state.value.trim();
     event.preventDefault();
-    this.props.onSearch(this.state.value)
+    if (query && query.length > 0 ){
+      this.props.onSearch(query)
+    }
   }
 
   render () {
